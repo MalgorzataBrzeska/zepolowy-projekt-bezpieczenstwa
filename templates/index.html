@@ -1,0 +1,22 @@
+<html>
+<body>
+    <h1>Linux Security Scanner</h1>
+
+    <form action="/scan" method="POST">
+        <label>Tryb:</label>
+        <select name="mode">
+            <option value="system">System scan</option>
+            <option value="network">Network scan</option>
+            <option value="files">File scan</option>
+        </select><br><br>
+
+        <label>Host (dla network):</label>
+        <input name="target" placeholder="127.0.0.1"><br><br>
+
+        <label>Katalog (dla files):</label>
+        <input name="path" placeholder="/etc"><br><br>
+
+        <button type="submit">Skanuj</button>
+    </form>
+</body>
+</html>
