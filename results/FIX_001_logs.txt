@@ -1,0 +1,33 @@
+1. Sprawdzenie ustawionych reguł
+
+┌──(kali㉿kali)-[~]
+└─$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere
+80/tcp                     ALLOW IN    Anywhere
+443/tcp                    ALLOW IN    Anywhere
+22/tcp (v6)                ALLOW IN    Anywhere (v6)
+80/tcp (v6)                ALLOW IN    Anywhere (v6)
+443/tcp (v6)               ALLOW IN    Anywhere (v6)
+
+2. Wynik testu z użyciem nmap
+
+Host is up (0.0023s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+ponowny test lynis
+
+┌──(kali㉿kali)-[~]
+└─$ sudo grep warning /var/log/lynis-report.dat
+warning[]=NETW-2705|Couldn't find 2 responsive nameservers|-|-|
+
+!BRAK POPRZEDNIEGO ZAGROZENIA - WINIK TESTU POPRAWNY!
