@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
-from Scanner.system_scan import system_scan
-from Scanner.network_scan import network_scan
-from Scanner.file_scan import file_scan
+from src.Scanner.system_scan import system_scan
+from src.Scanner.network_scan import network_scan
+from src.Scanner.file_scan import file_scan
 
 app = Flask(__name__)
 
