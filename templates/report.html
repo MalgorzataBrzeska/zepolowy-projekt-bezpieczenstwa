@@ -1,7 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Raport bezpieczeństwa</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
 <body>
-    <h1>Wyniki skanu</h1>
-    <pre>{{ data | tojson(indent=2) }}</pre>
-    <a href="/">Powrót</a>
+<div class="container">
+    <h1>📄 Raport bezpieczeństwa</h1>
+
+    {% if data.error %}
+        <div class="error">
+            {{ data.error }}
+            {% if data.details %}
+                <br><small>{{ data.details }}</small>
+            {% endif %}
+        </div>
+
+    {% elif mode == "files" %}
+        <p><strong>📂 Ścieżka:</strong> {{ data.path }}</p>
+        <p><strong>📊 Plików przeskanowanych:</strong> {{ data.files_scanned }}</p>
+
+        <div class="card">
+            {% for f in data.files %}
+                <div class="file">
+                    <strong>{{ f.file }}</strong><br>
+                    <small class="hash">{{ f.sha256 }}</small>
+
+                    {% if f.suspicious %}
+                        <div class="alert">
+                            ⚠ Wykryte wzorce: {{ f.suspicious }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    {% elif mode == "network" %}
+        <p><strong>🌐 Host:</strong> {{ data.host }}</p>
+        <p><strong>🔓 Otwarte porty:</strong></p>
+
+        {% if data.open_ports %}
+            <ul class="ports">
+                {% for p in data.open_ports %}
+                    <li>Port {{ p }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Brak otwartych portów</p>
+        {% endif %}
+
+    {% elif mode == "system" %}
+        <ul class="system">
+            {% for k, v in data.items() %}
+                <li><strong>{{ k }}:</strong> {{ v }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="POST" action="/save">
+        <button class="save-btn">💾 Zapisz raport do JSON</button>
+    </form>
+
+    <a class="back" href="/">← Powrót</a>
+</div>
 </body>
 </html>

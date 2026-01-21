@@ -7,14 +7,12 @@ def now():
     return datetime.utcnow().isoformat() + "Z"
 
 def system_scan():
-    data = {
+    return {
         "timestamp": now(),
         "hostname": socket.gethostname(),
-        "platform": platform.platform(),
+        "os": platform.system(),
         "kernel": platform.release(),
-        "cpu_percent": psutil.cpu_percent(1),
-        "cpu_count": psutil.cpu_count(),
-        "memory": psutil.virtual_memory()._asdict(),
-        "disk": psutil.disk_usage("/")._asdict(),
+        "cpu_usage": psutil.cpu_percent(1),
+        "memory_usage": psutil.virtual_memory().percent,
+        "disk_usage": psutil.disk_usage("/").percent,
     }
-    return data
