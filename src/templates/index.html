@@ -1,22 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Security Scanner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
 <body>
+<div class="container">
     <h1>Linux Security Scanner</h1>
 
-    <form action="/scan" method="POST">
-        <label>Tryb:</label>
+    <form method="POST" action="/scan">
+        <label>Tryb skanowania</label>
         <select name="mode">
-            <option value="system">System scan</option>
-            <option value="network">Network scan</option>
-            <option value="files">File scan</option>
-        </select><br><br>
+            <option value="system">System</option>
+            <option value="network">Network</option>
+            <option value="files">Files</option>
+        </select>
 
-        <label>Host (dla network):</label>
-        <input name="target" placeholder="127.0.0.1"><br><br>
+        <label>Host (network)</label>
+        <input name="target" placeholder="127.0.0.1">
 
-        <label>Katalog (dla files):</label>
-        <input name="path" placeholder="/etc"><br><br>
+        <label>Katalog (files)</label>
+        <input name="path" placeholder="./scan_data">
 
-        <button type="submit">Skanuj</button>
+        <button type="submit">▶ Uruchom skan</button>
     </form>
+</div>
 </body>
 </html>
