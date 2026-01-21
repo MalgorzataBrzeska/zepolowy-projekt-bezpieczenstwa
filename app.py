@@ -1,17 +1,10 @@
-<<<<<<< HEAD
-from flask import Flask, render_template, request, send_file
-from Scanner.system_scan import system_scan
-from Scanner.network_scan import network_scan
-from Scanner.file_scan import file_scan
-from Scanner.report import save_json
-=======
-from flask import Flask, render_template, request
 from src.Scanner.system_scan import system_scan
 from src.Scanner.network_scan import network_scan
 from src.Scanner.file_scan import file_scan
->>>>>>> 7b33610fa1412ee632d32326ccdc8de6a89c812d
+from src.Scanner.report import save_json
+from flask import Flask, render_template, request, send_file
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="src/templates")
 
 LAST_REPORT = None  # przechowuje ostatni raport w pamięci
 

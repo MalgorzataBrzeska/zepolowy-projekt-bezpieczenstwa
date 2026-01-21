@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-01-21T13:18:22.947300Z",
+  "hostname": "kali",
+  "os": "Linux",
+  "kernel": "6.12.38+kali-amd64",
+  "cpu_usage": 12.9,
+  "memory_usage": 45.6,
+  "disk_usage": 29.3
+}
