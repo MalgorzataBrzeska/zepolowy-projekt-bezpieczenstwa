@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>📄 Raport bezpieczeństwa</h1>
+    <h1>Raport bezpieczeństwa</h1>
 
     {% if data.error %}
         <div class="error">
@@ -18,8 +18,8 @@
         </div>
 
     {% elif mode == "files" %}
-        <p><strong>📂 Ścieżka:</strong> {{ data.path }}</p>
-        <p><strong>📊 Plików przeskanowanych:</strong> {{ data.files_scanned }}</p>
+        <p><strong> Ścieżka:</strong> {{ data.path }}</p>
+        <p><strong> Plików przeskanowanych:</strong> {{ data.files_scanned }}</p>
 
         <div class="card">
             {% for f in data.files %}
@@ -59,7 +59,7 @@
     {% endif %}
 
     <form method="POST" action="/save">
-        <button class="save-btn">💾 Zapisz raport do JSON</button>
+        <button class="save-btn"> Zapisz raport do JSON</button>
     </form>
 
     <a class="back" href="/">← Powrót</a>
