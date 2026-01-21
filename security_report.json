@@ -1,9 +1,3 @@
 {
-  "timestamp": "2026-01-21T12:46:35.972190Z",
-  "hostname": "kali",
-  "os": "Linux",
-  "kernel": "6.12.38+kali-amd64",
-  "cpu_usage": 17.4,
-  "memory_usage": 40.3,
-  "disk_usage": 29.3
+  "error": "Nie podano ścieżki do skanowania"
 }
